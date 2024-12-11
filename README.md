@@ -8,40 +8,9 @@
 
 ## Cluster creation 
 
-1. Clone korifi repo 
 
-   ```bash
-   git clone git@github.com:cloudfoundry/korifi.git
-   ```
+Follow this [guide](https://github.com/cloudfoundry/korifi/blob/v0.13.0/INSTALL.kind.md)
 
-   > [!IMPORTANT]
-   > There are known issues with the deployment process on Kind cluster.
-
-   To address these issues, you can use a [forked repository](https://github.com/gciavarrini/korifi/tree/fix-deploy-on-kind)
-   that includes fixes for deploying Korifi on Kind. 
-   
-   This repo contains: 
-   * [7929fed5](https://github.com/cloudfoundry/korifi/commit/7929fed5bae427f21eb26f72bbbf78a56cd4c970) Change kind config to use 2 nodes
-   * [9a59dcaa](https://github.com/cloudfoundry/korifi/commit/9a59dcaa05dca62317d990b834e3642a9644d79c) Fix helm chart update
-   * [3d3b380e](https://github.com/cloudfoundry/korifi/commit/3d3b380ee3a8f9b575c6a9d9158da0194014fe6f) Duplicated resource `cfserviceinstances/status`
-
-   ```bash
-   git clone git@github.com:gciavarrini/korifi.git
-   ```
-
-2. Expose privileged port `80` and `443`
-
-   ```bash
-   sudo setcap cap_net_bind_service=ep $(which rootlesskit)
-   systemctl --user restart docker
-   ```
-
-3. Create cluster with Korifi
-
-   ```bash
-   cd korifi/scripts
-   ./deploy-on-kind korifi
-   ```
 ## Troubleshooting
    1. Job `install-korifi` fails with `fsnotify watcher: too many open files`
 
@@ -131,12 +100,7 @@
 
       and recreate the cluster
 
-      ```bash
-      kind delete cluster -n korifi
-      ./deploy-on-kind.sh korifi
-      ```
-
-   4. Deployment `korifi-api-deployment` can't start
+   4. If used `./deploy-on-kind` script and deployment `korifi-api-deployment` can't start
 
       ```bash
       >> oc describe deployments.apps korifi-api-deployment -n korifi
