@@ -6,10 +6,21 @@
 * `kbld` ( [how to install](https://carvel.dev/kbld/docs/v0.44.x/install/))
 * `cf`
 
-## Cluster creation 
+## Set up
+
+### Quick setup
+To quickly set up a Kind cluster with Korifi, simply run: 
+```bash
+./create_cluster.sh
+``` 
+This script automates all the steps outlined in the 
+[official guide]([#step-by-step-setup](https://github.com/cloudfoundry/korifi/blob/v0.13.0/INSTALL.kind.md)),
+providing a convenient way to get started without the need to manually copy and paste commands.
 
 
-Follow this [guide](https://github.com/cloudfoundry/korifi/blob/v0.13.0/INSTALL.kind.md)
+### Step by step setup
+For detailed instructions and manual setup, refer to the
+[offical guide](https://github.com/cloudfoundry/korifi/blob/v0.13.0/INSTALL.kind.md)
 
 ## Troubleshooting
    1. Job `install-korifi` fails with `fsnotify watcher: too many open files`
